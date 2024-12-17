@@ -6,9 +6,10 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/hpbackground4"
     tools:context=".MainActivity">
 
-    <!-- Ana içerik ve Toolbar -->
+    <!-- Main Content Area -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,29 +18,189 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:elevation="8dp"
+            android:title="Kan Bağışı"
+            android:titleTextColor="@color/white"
             app:popupTheme="@style/ThemeOverlay.Material3.Light" />
 
-        <!-- İçerik Alanı (FrameLayout) -->
-        <FrameLayout
-            android:id="@+id/content_frame"
+
+        <!-- Scrollable Content Area -->
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="56dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Bottom Navigation Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Hero Section -->
+                <ImageView
+                    android:id="@+id/heroImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:src="@drawable/icon7" />
+
+                <!-- Card: Why Donate -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/titleWhyDonate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Neden Kan Bağışlamalıyız?"
+                            android:textColor="@color/highlightColor"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Kendi sağlığınız ve başkalarının hayatları için."
+                            android:textColor="@color/secondaryText"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/exploreMore"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:backgroundTint="@color/buttonColor"
+                            android:onClick="openWebsite"
+                            android:text="Daha fazla bilgi edinin"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Card: Donation Process -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/titleDonationProcess"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kan Bağış Süreci"
+                            android:textColor="@color/highlightColor"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Kan bağış süreci nasıldır?"
+                            android:textColor="@color/secondaryText"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/requestNow"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:backgroundTint="@color/buttonColor"
+                            android:onClick="openWebsite"
+                            android:text="Daha fazla bilgi edinin"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Card: Volunteer -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/cardBackground"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/titleVolunteer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kızılay Gönüllüsü Ol"
+                            android:textColor="@color/highlightColor"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Etkinliklere katıl ve yardım et."
+                            android:textColor="@color/secondaryText"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/checkEvents"
+                            style="@style/Widget.Material3.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:backgroundTint="@color/buttonColor"
+                            android:onClick="openWebsite"
+                            android:text="Etkinlikleri görüntüle"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <!-- Bottom Navigation -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:menu="@menu/bottom_nav_menu"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/black"
             app:labelVisibilityMode="labeled"
-            app:itemIconTint="@color/nav_item_color"
-            app:itemTextColor="@color/nav_item_color" />
+            app:menu="@menu/bottom_nav_menu" />
+
+
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Navigation Drawer -->
@@ -49,5 +210,4 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/nav_menu" />
-
 </androidx.drawerlayout.widget.DrawerLayout>
